@@ -1,0 +1,60 @@
+#{extends 'main.html' /}
+#{set title:'Admin' /}
+
+#{menu id:"admin"/}
+
+<section class="ui inverted blue segment">
+    <h2 class="ui header">
+        All Readings in Database:
+    </h2>
+    <table class="ui table">
+        <thead>
+        <tr>
+            <th>Code</th>
+            <th>Temperature</th>
+            <th>Wind Speed</th>
+            <th>Wind Direction</th>
+            <th>Pressure</th>
+        </tr>
+        </thead>
+        <tbody>
+        #{list items:readings,as:'reading'}
+        <tr>
+            <td>
+            ${reading.code}
+            </td>
+            <td>
+            ${reading.temperature}
+            </td>
+            <td>
+            ${reading.windSpeed}
+            </td>
+            <td>
+            ${reading.windDirection}
+            </td>
+            <td>
+            ${reading.pressure}
+            </td>
+        </tr>
+        #{/list}
+        </tbody>
+    </table>
+    <br>
+    <div class="ui centered medium images">
+        <img class="ui circular image"
+             src="https://cdn.dribbble.com/users/2277649/screenshots/8498294/weather_dribbble_size.gif.gif"
+             alt="">
+        <img class="ui circular image"
+             src="https://i.pinimg.com/originals/11/3c/89/113c89f79d99a597ec31b48c8b856758.gif"
+             alt="">
+        <img class="ui circular image"
+             src="https://cdn.dribbble.com/users/2277649/screenshots/8498294/weather_dribbble_size.gif.gif"
+             alt="">
+    </div>
+    <br>
+    <div class="ui inverted yellow vertical footer segment">
+        <div class="ui container">
+            <i class="right floated wind big blue icon"></i> Weathertop Stations 2021. All Rights Reserved Sophia McGee
+        </div>
+    </div>
+</section>

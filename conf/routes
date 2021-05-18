@@ -4,8 +4,30 @@
 
 # Home page
 GET     /                                       Start.index
+
+GET    /signup                                  Accounts.signup
+GET    /login                                   Accounts.login
+POST   /register                                Accounts.register
+POST   /authenticate                            Accounts.authenticate
+GET    /logout                                  Accounts.logout
+
 GET     /dashboard                              Dashboard.index
 GET     /about                                  About.index
+POST    /dashboard/addStation                   Dashboard.addStation
+POST    /station/{id}/addReading                StationCtrl.addReading
+
+GET     /dashboard/deletestation/{id}           Dashboard.deleteStation
+
+POST    /dashboard/addstation                   Dashboard.addStation
+
+GET     /about                                  About.index
+GET     /admin                                  Admin.index
+GET     /station/{id}                           StationCtrl.index
+GET     /station/{id}/deletereading/{readingid} StationCtrl.deleteReading
+
+
+
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
@@ -14,4 +36,5 @@ GET     /favicon.ico                            404
 GET     /public/                                staticDir:public
 
 # Catch all
-*       /{controller}/{action}                  {controller}.{action}
+
+*       /{controllers}/{action}                  {controllers}.{action}

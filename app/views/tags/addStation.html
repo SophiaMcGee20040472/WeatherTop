@@ -1,0 +1,21 @@
+<form class="ui stacked inverted blue segment form" action="/dashboard/addStation" method="POST">
+    <div class="two fields">
+        <div class="field">
+            <label>Station Name</label>
+            <input placeholder="Station Name" type="text" name="name">
+        </div>
+        <div class="field">
+            <label>Latitude</label>
+            <div class="ui icon input">
+                <input placeholder="00.00" type="double" name="lat">
+            </div>
+        </div>
+        <div class="field">
+            <label>Longitude</label>
+            <div class="ui icon input">
+                <input placeholder="00.00" type="double" name="lng">
+            </div>
+        </div>
+    </div>
+    <button class="ui circular yellow submit button">Add Station</button>
+</form>

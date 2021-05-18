@@ -1,8 +1,145 @@
 #{extends 'main.html' /}
 #{set title:'Dashboard' /}
+#{menu id:"Dashboard"/}
 
-#{menu id:"dashboard"/}
-
-<section class="ui segment">
-  #{mainpanel/}
+<h2>Welcome To WeatherTop</h2>
+#{list items:station, as:'station'}
+<header class="ui header">
+${member.firstname} ${member.lastname}'s Stations
+</header>
+<section class="ui inverted blue segment">
+    <h2 class="ui yellow header">
+    ${station.name}</h2>
+    <h3> WeatherTop Station</h3>
+    <div class="ui five column-resize-line grid">
+        <div class="column">
+            <div class="ui inverted red cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="header">${station.name}<i class="right floated big purple map marker icon"></i>
+                        </div>
+                        <div class="description">
+                            Lat : ${station.lat}
+                            <br>
+                            Lng : ${station.lng}
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui inverted orange cards">
+                <div class="card">
+                    <div class="content">
+                        <h2 class="header"> Weather <i class="right floated  big pink cloud icon"></i></h2>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui inverted yellow cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="header">Temp <i class="right floated temperature big blue low icon"></i></div>
+                        <div class="description">
+                            0.0 C
+                            <br>
+                            0.0 F
+                            <br>
+                            Min :0.0
+                            <br>
+                            Max :0.0
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui inverted green cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="header">Wind
+                            <i class="right floated wind big green icon"></i></div>
+                        <div class="description">
+                            0 bft
+                            <br>
+                            Feels Like
+                            <br>
+                            0.0
+                            <br>
+                            Min: 0.0
+                            <br>
+                            Max:0.0
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui inverted blue cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="header">Pressure <i class="right floated big dark orange sun outline icon"></i>
+                        </div>
+                        <div class="description">
+                            0.0 hpa
+                            <br>
+                            Min: 0 hpa
+                            <br>
+                            Max: 0 hpa
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="ui circular centered medium images">
+        <img class="ui image"
+             src="https://i.pinimg.com/originals/8e/07/0a/8e070a112dcf30f94f49cedcc8070ee7.gif" alt="">
+        <img class="ui image"
+             src="https://cdn.dribbble.com/users/1429491/screenshots/4323471/1dr.gif" alt="">
+        <img class="ui image"
+             src="https://i.pinimg.com/originals/d5/0f/fe/d50ffe41a986e3db529f16dccb1a4040.gif" alt="">
+    </div>
+    <br>
+    <a href="/station/${station.id}" class="ui medium green icon button">View Station
+        <i class="icon large folder open"></i>
+    </a>
+    <a href="/dashboard/deletestation/${station.id}" class="ui medium red icon button">Delete Station
+        <i class="large icon trash"></i>
+    </a>
 </section>
+#{/list}
+#{addStation /}
+<div class="ui inverted yellow vertical footer segment">
+    <div class="ui container">
+        <i class="right floated wind big blue icon"></i> Weathertop Stations 2021. All Rights Reserved Sophia McGee
+    </div>
+</div>
+
+
+
+
+
+
