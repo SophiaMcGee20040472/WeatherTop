@@ -1,0 +1,189 @@
+<div class="ui five column-resize-line grid">
+    <div class="column">
+        <div class="ui raised inverted red cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">${_station.name}<i class="right floated big purple map marker icon"></i></div>
+                    <div class="description">
+                        Lat : ${_station.lat}
+                        <br>
+                        Lng : ${_station.lng}
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui inverted orange cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header"> Weather
+                    #{list items:_station.readings,as:'reading'}
+                    #{/list}
+                    #{list items:_station.stat,as:'stat'}
+                        #{if reading.code == 100}
+                            <i class="right floated big orange sun icon"></i>
+                        #{/if}
+                        #{elseif reading.code == 200}
+                            <i class="right floated big blue cloud sun icon"></i>
+                        #{/elseif}
+                        #{elseif reading.code == 300}
+                            <i class="right floated big pink cloud icon"></i>
+                        #{/elseif}
+                        #{elseif reading.code == 400}
+                            <i class="right floated big orange cloud rain icon"></i>
+                        #{/elseif}
+                        #{elseif reading.code == 500}
+                            <i class="right floated big white cloud showers heavy icon"></i>
+                        #{/elseif}
+                        #{elseif reading.code == 600}
+                            <i class="right floated big purple umbrella icon"></i>
+                        #{/elseif}
+                        #{elseif reading.code == 700}
+                            <i class="right floated big white snowflake icon"></i>
+                        #{/elseif}
+                        #{elseif reading.code == 800}
+                            <i class="right floated big yellow bolt icon"></i>
+                        #{/elseif}
+                        #{else}
+                            <i class="right floated big yellow bolt icon"></i>
+                        #{/else}
+                        <h5>
+                        ${stat.weatherType}
+                        </h5>
+                    #{/list}
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui inverted yellow cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">Temp <i class="right floated temperature big blue low icon"></i></div>
+                    <div class="description">
+                    #{list items:_station.stat,as:'stat'}
+                    ${stat.temperatureType} C
+                        <br>
+                    ${stat.fahrenheitType} F
+                        <br>
+                        Min : ${stat.minTemperature} C
+                        <br>
+                        Max : ${stat.maxTemperature} C
+                        <br>
+                        <br>
+                        <br>
+                    #{/list}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui inverted green cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">Wind
+                        <i class="right floated wind big green icon"></i></div>
+                    <div class="description">
+                    #{list items:_station.stat,as:'stat'}
+                    ${stat.windSpeedType} bft
+                        <br>
+                    ${stat.windDirectionType}
+                        <br>
+                        Feels Like
+                        <br>
+                    ${stat.windChillType}
+                        <br>
+                        Min: ${stat.minWindSpeed}
+                        <br>
+                        Max: ${stat.maxWindSpeed}
+                    #{/list}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui inverted blue cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">Pressure <i class="right floated big dark orange sun outline icon"></i></div>
+                    <div class="description">
+                    #{list items:_station.stat,as:'stat'}
+                    ${stat.pressureType} hpa
+                        <br>
+                        <br>
+                        Min: ${stat.minPressure} hpa
+                        <br>
+                        Max: ${stat.maxPressure} hpa
+                    #{/list}
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="ui centered medium images">
+    <img class="ui image"
+         src="https://i.pinimg.com/originals/11/3c/89/113c89f79d99a597ec31b48c8b856758.gif"
+         alt="">
+    <img class="ui image"
+         src="https://i.pinimg.com/originals/0e/f3/bb/0ef3bb66d9216fffcea9022628f7bb26.gif"
+         alt="">
+    <img class="ui image"
+         src="https://coalregioncanary.com/wp-content/uploads/2020/08/summer.gif"
+         alt="">
+</div>
+<table class="ui inverted black fixed table">
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Temperature</th>
+        <th>Wind Speed</th>
+        <th>Wind Direction</th>
+        <th>Pressure</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:_station.readings,as:'reading'}
+    <tr>
+        <td>
+        ${reading.code}
+        </td>
+        <td>
+        ${reading.temperature}
+        </td>
+        <td>
+        ${reading.windSpeed}
+        </td>
+        <td>
+        ${reading.windDirection}
+        </td>
+        <td>
+        ${reading.pressure}
+        </td>
+        <td>
+            <a href="/station/${_station.id}/deletereading/${reading.id}" class="ui red icon button">
+                <i class="icon trash"></i></a>
+        </td>
+    </tr>
+    #{/list}
+    </tbody>
+</table>
+
+

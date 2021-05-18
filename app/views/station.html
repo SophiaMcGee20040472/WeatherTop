@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'Station' /}
+#{menu id:"station"/}
+#{list items:station, as:'stat'}
+<section class="ui inverted pink segment">
+    <h2 class="ui header">
+        <u> ${station.name}</u>
+    </h2>
+    #{listreading station:station/}
+    #{addreading station:station/}
+    <section class="ui inverted black segment">
+        <h5> Min Temp: ${minTemp} C
+            <i class=" big blue temperature low icon"></i>
+            Max Temp: ${maxTemp} C
+            <i class="big red temperature low icon"></i>
+            Min WindSpeed : ${minSpeed}
+            <i class="big grey wind icon"></i>
+            Max WindSpeed :${maxSpeed}
+            <i class="big yellow wind icon"></i>
+            Min Pressure: ${minPress} hpa
+            <i class="big purple sun outline icon"></i>
+            Max Pressure: ${maxPress} hpa
+            <i class="big red sun outline icon"></i>
+        </h5>
+    </section>
+</section>
+#{/list}
+
+
+
+
+
+

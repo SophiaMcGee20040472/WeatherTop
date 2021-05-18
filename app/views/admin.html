@@ -1,0 +1,48 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"admin"/}
+
+<section class="ui inverted segment">
+    <h2 class="ui header">
+        All Readings in Database:
+    </h2>
+    <table class="ui inverted blue table">
+        <thead>
+        <tr>
+            <th>Code</th>
+            <th>Temperature</th>
+            <th>Wind Speed</th>
+            <th>Wind Direction</th>
+            <th>Pressure</th>
+        </tr>
+        </thead>
+        <tbody>
+        #{list items:readings,as:'reading'}
+        <tr>
+            <td>
+            ${reading.code}
+            </td>
+            <td>
+            ${reading.temperature}
+            </td>
+            <td>
+            ${reading.windSpeed}
+            </td>
+            <td>
+            ${reading.windDirection}
+            </td>
+            <td>
+            ${reading.pressure}
+            </td>
+        </tr>
+        #{/list}
+        </tbody>
+    </table>
+    <br>
+    <div class="ui inverted yellow vertical footer segment">
+        <div class="ui container">
+            <i class="right floated wind big blue icon"></i> Weathertop Stations 2021. All Rights Reserved Sophia McGee
+        </div>
+    </div>
+</section>

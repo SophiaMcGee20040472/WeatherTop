@@ -1,8 +1,40 @@
 #{extends 'main.html' /}
 #{set title:'Dashboard' /}
+#{menu id:"Dashboard"/}
 
-#{menu id:"dashboard"/}
+#{list items:station, as:'station'}
+<header class="ui header">
+${member.firstname} ${member.lastname}'s Stations
+</header>
+<section class="ui inverted blue segment">
+    <h2 class="ui yellow header">
+    ${station.name}</h2>
+   Lat: ${station.lat}
+    <br>
+    Long : ${station.lng}
+    <u><h4>Location</h4></u>
+    <h3> WeatherTop Station</h3>
+    <div class="ui  medium images">
 
-<section class="ui segment">
-  #{mainpanel/}
+        <img class="ui image"
+             src="https://i.pinimg.com/originals/8e/07/0a/8e070a112dcf30f94f49cedcc8070ee7.gif" alt="">
+        <img class="ui image"
+             src="https://cdn.dribbble.com/users/1429491/screenshots/4323471/1dr.gif" alt="">
+        <img class="ui image"
+             src="https://i.pinimg.com/originals/d5/0f/fe/d50ffe41a986e3db529f16dccb1a4040.gif" alt="">
+
+    </div>
+    <h5>View Station/Delete Station</h5>
+    <a href="/station/${station.id}" class="ui green icon button">
+        <i class="icon folder open"></i>
+    </a>
+    <a href="/dashboard/deletestation/${station.id}" class="ui red icon button">
+        <i class="icon trash"></i>
+    </a>
 </section>
+#{/list}
+#{addStation /}
+
+
+
+
