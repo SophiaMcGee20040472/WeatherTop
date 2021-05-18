@@ -1,0 +1,115 @@
+<div class="ui five column grid">
+    <div class="column">
+        <div class="ui inverted cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">${_station.name}</div>
+                    <div class="description">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui inverted cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">Weather</div>
+                    <div class="description">
+                    #{list items:_station.stat,as:'stat'}
+                    ${stat.weatherType}
+                    #{/list}
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui inverted cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">Temp</div>
+                    <div class="description">
+                    #{list items:_station.stat,as:'stat'}
+                    ${stat.temperatureType} C
+                        <br>
+                    ${stat.fahrenheitType} F
+                    #{/list}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui inverted cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">Wind</div>
+                    <div class="description">
+                    #{list items:_station.stat,as:'stat'}
+                    ${stat.windSpeedType} bft
+                    #{/list}
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui inverted cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">Pressure</div>
+                    <div class="description">
+                    #{list items:_station.stat,as:'stat'}
+                    ${stat.pressureType} hpa
+                    #{/list}
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="ui large centered images">
+    <img class="ui circular image"
+         src="https://www.offalyexpress.ie/resizer/600/315/true/1590136429328.JPG--ireland_weather_forecast_for_the_weekend_from_met_eireann.JPG?1590136429000,">
+    <h3><u><==Temp Wind==></u></h3>
+    <img class="ui circular image"
+         src="https://www.leinsterexpress.ie/resizer/600/315/true/1615123931307.JPG--met_eireann_rte_weather_storm.JPG?1615123931000">
+</div>
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Temp</th>
+        <th>Wind Speed</th>
+        <th>Pressure</th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:_station.readings,as:'reading'}
+    <tr>
+        <td>
+        ${reading.code}
+        </td>
+        <td>
+        ${reading.temperature}
+        </td>
+        <td>
+        ${reading.windSpeed}
+        </td>
+        <td>
+        ${reading.pressure}
+        </td>
+    </tr>
+    #{/list}
+    </tbody>
+</table>

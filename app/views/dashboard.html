@@ -2,7 +2,13 @@
 #{set title:'Dashboard' /}
 
 #{menu id:"dashboard"/}
-
-<section class="ui segment">
-  #{mainpanel/}
+<section class="ui inverted segment">
+#{list items:station, as:'station'}
+    <section class="ui raised segment">
+        <h1 class="ui header">
+        ${station.name}
+        </h1>
+        #{listreading station:station/}
+    </section>
+#{/list}
 </section>
