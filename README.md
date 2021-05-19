@@ -43,7 +43,7 @@ https://www.youtube.com/watch?v=S7TbHDN8EXA&ab_channel=DevWorldDevWorld
 https://www.youtube.com/watch?v=lR_hYwCAaH4&ab_channel=TheCodingTrainTheCodingTrainVerified
 https://www.freecodecamp.org/news/10-important-git-commands-that-every-developer-should-know/
 https://dzone.com/articles/top-20-git-commands-with-examples
-git clone https://github.com/wit-hdip-comp-sci-2020/play-template-1 playlist //from labs
+https://github.com/wit-hdip-comp-sci-2020/play-template-1 
 https://www.youtube.com/watch?v=wrb7Gge9yoE&ab_channel=Codecademy
 
 
