@@ -1,13 +1,15 @@
+import models.Member;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 import play.test.Fixtures;
-import models.*;
 
 @OnApplicationStart
-public class Bootstrap extends Job {
-    public void doJob() {
-        if (Member.count() == 0) {
-
+public class Bootstrap extends Job
+{
+    public void doJob()
+    {
+        if (Member.count() == 0)
+        {
             Fixtures.loadModels("data.yml");
         }
     }
